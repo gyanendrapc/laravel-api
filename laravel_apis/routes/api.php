@@ -3,7 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+// importing dummyApi
 use App\Http\Controllers\dummyAPI;
+// import DeviceController
+use App\Http\Controllers\DeviceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +23,8 @@ use App\Http\Controllers\dummyAPI;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+// Route for our fist dummy api
 Route::get("data",[dummyAPI::class,'getData']);
+
+// Route for our second Device api
+Route::get("list",[DeviceController::class,'list']);
