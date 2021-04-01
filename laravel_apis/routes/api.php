@@ -4,9 +4,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // importing dummyApi
-use App\Http\Controllers\dummyAPI;
+// use App\Http\Controllers\dummyAPI;
 // import DeviceController
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\DeviceController1;
+
 
 
 /*
@@ -27,4 +29,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get("data",[dummyAPI::class,'getData']);
 
 // Route for our second Device api
-Route::get("list",[DeviceController::class,'list']);
+Route::get("list/{id?}",[DeviceController::class,'list']);
+
+// route for third Device api
+Route::post("add",[DeviceController1::class,'add']);
+
+// route for put method
+Route::put("update",[DeviceController::class,'update']);
+
+
+// route for search method
+Route::get("search/{name}",[DeviceController::class,'search']);
+
+
+// route for delete method
+Route::delete("delete/{id}",[DeviceController::class,"delete"]);
+
+
+// route for api validation
+Route::post("save",[DeviceController::class,"save"]);
