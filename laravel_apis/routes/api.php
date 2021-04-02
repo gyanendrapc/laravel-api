@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 // import DeviceController
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DeviceController1;
+use  App\Http\Controllers\MemberController;
+
+use App\Http\Controllers\FileController;
 
 
 
@@ -48,3 +51,9 @@ Route::delete("delete/{id}",[DeviceController::class,"delete"]);
 
 // route for api validation
 Route::post("save",[DeviceController::class,"save"]);
+
+// one route for resource controller
+Route::apiResource("member",MemberController::class);
+
+// path for file upload
+Route::post("upload",[FileController::class,'upload']);
